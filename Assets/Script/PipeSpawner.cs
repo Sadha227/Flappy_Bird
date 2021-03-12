@@ -12,22 +12,32 @@ public class PipeSpawner : MonoBehaviour
     private int pipeNum = 0;
     private Coroutine spawnerPipesCoroutine;
 
-    IEnumerator Start()
+    void Start()
+    {
+       
+    }
+
+    IEnumerator SpawenPipe()
     {
         while (true)
         {
             if (pipeNum == 0)
             {
                 CreateAndMove(pipe1);
-               
+
             }
-            else if(pipeNum == 1)
+            else if (pipeNum == 1)
             {
                 CreateAndMove(pipe2);
             }
             yield return new WaitForSeconds(timeToSpawner);
             pipeNum = 1 - pipeNum;
         }
+    }
+
+    public void StartSpawning()
+    {
+        spawnerPipesCoroutine = StartCoroutine(SpawenPipe());
     }
 
     private void CreateAndMove(GameObject pipe)
