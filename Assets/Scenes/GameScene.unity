@@ -1126,6 +1126,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c48098bf96e4a8448e3b577675dfb30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverComponents:
+  - {fileID: 1228186483}
+  - {fileID: 2102018037}
+  - {fileID: 394775001}
+  - {fileID: 1660991065}
+  startOverComponents:
+  - {fileID: 1732491604}
+  - {fileID: 1896462890}
+  scoreObjects: {fileID: 1773804440}
 --- !u!4 &1352579858
 Transform:
   m_ObjectHideFlags: 0
