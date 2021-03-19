@@ -5,6 +5,7 @@ using UnityEngine;
 public class BirdFly : MonoBehaviour
 {
     [SerializeField] float velocity = 1f;  // [SerializeField] == public
+    [SerializeField] Manager manager;
     Rigidbody2D rb;
     private bool isAlreadyTouched = false;
 
@@ -21,6 +22,7 @@ public class BirdFly : MonoBehaviour
             isAlreadyTouched = true;
             rb.isKinematic = false;
             FindObjectOfType<PipeSpawner>().StartSpawning();
+            manager.DisableStartUI();
             rb.velocity = Vector2.up * velocity;
         }
         if (Input.GetMouseButtonDown(0) && transform.position.y < 1.1f)
@@ -31,6 +33,6 @@ public class BirdFly : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        FindObjectOfType<Manager>().RestartGame();
+        manager.GameOver();
     }
 }
